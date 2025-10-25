@@ -1,4 +1,4 @@
-class Snappy < Formula
+class SnappyWm < Formula
   desc "macOS window snapping utility with global hotkeys"
   homepage "https://github.com/Wriath18/Snappy"
   url "https://github.com/Wriath18/Snappy/archive/refs/tags/v1.0.0.tar.gz"
