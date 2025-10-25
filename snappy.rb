@@ -1,8 +1,8 @@
 class Snappy < Formula
   desc "macOS window snapping utility with global hotkeys"
-  homepage "https://github.com/yourusername/Snappy"
-  url "https://github.com/yourusername/Snappy/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "" # Will be filled when you create a release
+  homepage "https://github.com/Wriath18/Snappy"
+  url "https://github.com/Wriath18/Snappy/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "d08aa7624c6b066498bffbea9d05f87690ba283e073ccfda2a37db966d34de39" # Will be filled when you create a release
   license "MIT"
   
   depends_on :macos
