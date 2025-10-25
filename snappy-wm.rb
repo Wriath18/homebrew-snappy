@@ -13,41 +13,12 @@ class SnappyWm < Formula
     bin.install ".build/release/Snappy" => "snappy"
   end
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/snappy</string>
-        </array>
-        
-        <key>RunAtLoad</key>
-        <true/>
-        
-        <key>KeepAlive</key>
-        <true/>
-        
-        <key>StandardOutPath</key>
-        <string>/tmp/snappy.out.log</string>
-        
-        <key>StandardErrorPath</key>
-        <string>/tmp/snappy.err.log</string>
-        
-        <key>ProcessType</key>
-        <string>Interactive</string>
-      </dict>
-      </plist>
-    EOS
-  end
-
-  def plist_name
-    "com.snappy.agent"
+  service do
+    run [opt_bin/"snappy"]
+    keep_alive true
+    log_path "/tmp/snappy.out.log"
+    error_log_path "/tmp/snappy.err.log"
+    process_type :interactive
   end
 
   def caveats
@@ -55,7 +26,7 @@ class SnappyWm < Formula
       Snappy has been installed!
 
       To start the service now and at login:
-        brew services start snappy
+        brew services start snappy-wm
 
       Or run manually:
         snappy
